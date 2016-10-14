@@ -220,7 +220,7 @@ Hello World!
 <p>So we see the output "Hello World". Just a reminder that the reason we don't need to provide any project name to run because its considering only one project in the parent folder</p>
 
 <h3>
-<a id="step-9-publish-the-project" class="anchor" href="#step-9-publish-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 9 Publish the project</h3>
+<a id="step-9-publish-the-project-windows" class="anchor" href="#step-9-publish-the-project-windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 9 Publish the project (Windows)</h3>
 
 <p>The final step of any application building process is publish. So issue the "dotnet publish" command, It will take all the required settings from project.json and publish the project for specific runtime (Default is windows).</p>
 
@@ -231,8 +231,48 @@ publish: Published to C:\dotnetcore\firstconsoleapp\bin\Debug\netcoreapp1.0\publ
 Published 1/1 projects successfully
 </code></pre>
 
-<p>So what is special in dotNet
-With dotNetCore we can publish the same application to many different environments like Windows, Linux, OSX. All we need to do it change </p>
+<blockquote>
+<p>So what is special in dotNetCore as compared to ASP.Net, Yes its modular, fast and everything but the biggest advantage is same application can run on Linix, OSX. So now lets publish this application for Linux</p>
+</blockquote>
+
+<h3>
+<a id="step-9-publish-the-project-for-other-run-times-linux--osx" class="anchor" href="#step-9-publish-the-project-for-other-run-times-linux--osx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 9 Publish the project for other run times (Linux &amp; OSX)</h3>
+
+<p>Lets make some changes publish process so that we can target different runtimes i.e. Linux or OSX. To do that we need to specify in project.json that about our target runtimes. Its called Runtime identifier &amp; Here is the list of some <a href="https://docs.microsoft.com/en-us/dotnet/articles/core/rid-catalog">codes</a> for each of the runtime. There are 2 steps which you need to follow. Add the following entry to project.json at root level</p>
+
+<pre><code>"runtimes": {"win81-x64": {}}
+</code></pre>
+
+<p>Remove the following entry from "Microsoft.NETCore.App" object.
+    "type": "platform",</p>
+
+<p>So your final config will look like following Download the sample here</p>
+
+<pre><code>{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {},
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.0.1"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  },
+"runtimes": {"win81-x64": {}}
+}
+</code></pre>
+
+<p><a href="https://github.com/Satindersatty/dotNetCore/blob/gh-pages/project.json_Window7Runtime">Download Window 7 Project.json</a>
+[Download OSX project.json])<a href="https://github.com/Satindersatty/dotNetCore/blob/gh-pages/Project.json_OSX">https://github.com/Satindersatty/dotNetCore/blob/gh-pages/Project.json_OSX</a>)</p>
+
+<p>Thanks for reading the blog.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Satindersatty/dotNetCore">Dotnetcore</a> is maintained by <a href="https://github.com/Satindersatty">Satindersatty</a>.</span>
