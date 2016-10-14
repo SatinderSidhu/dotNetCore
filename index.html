@@ -153,6 +153,87 @@ namespace ConsoleApplication
 
 <p>That's it. We have created our first console application. Let's compile it and run it now.</p>
 
+<h3>
+<a id="step-6-restore-the-nuget-packages-for-application" class="anchor" href="#step-6-restore-the-nuget-packages-for-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6 Restore the nuGet packages for application</h3>
+
+<p>Before we compile the application we need to restore all the packages and dependencies. To do that, lets run a restore commands, Its a kind of mandatory if you add any high level dependency to the project.json. </p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dotnet restore
+log  : Restoring packages for C:\dotnetcore\firstconsoleapp\project.json...
+log  : Writing lock file to disk. Path: C:\dotnetcore\firstconsoleapp\project.lock.json
+log  : C:\dotnetcore\firstconsoleapp\project.json
+log  : Restore completed in 1477ms.
+</code></pre>
+
+<p>Project.lock.json, What is this? So what restore process actually did? It went into project.json and looked for all framework, build options and created a list of all dependencies and loaded them into project.lock.json. So project.lock.json pretty much depends on project.json but it contains more detail. Take a look on project.lock.json it will have much more information</p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;type project.lock.json
+</code></pre>
+
+<blockquote>
+<p>Any time you add any dependency to project.json you need to restore the project. If you are using any IDE like visual studio code or visual studio they will do it for you when you build the project.</p>
+</blockquote>
+
+<h3>
+<a id="step-7-build-the-project" class="anchor" href="#step-7-build-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7 Build the project</h3>
+
+<p>Yes now its the time to build the project. Issue the following command "dotnet run". </p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dotnet build
+Project firstconsoleapp (.NETCoreApp,Version=v1.0) will be compiled because expected outputs are missing
+Compiling firstconsoleapp for .NETCoreApp,Version=v1.0
+
+Compilation succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time elapsed 00:00:01.5589169
+</code></pre>
+
+<p>If you view the directory now, it would have created two new folder (bin, obj) as part of the build process</p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dir
+ Volume in drive C is OS
+ Volume Serial Number is 5698-08AD
+
+ Directory of C:\dotnetcore\firstconsoleapp
+
+10/14/2016  03:21 PM    &lt;DIR&gt;          .
+10/14/2016  03:21 PM    &lt;DIR&gt;          ..
+10/14/2016  03:21 PM    &lt;DIR&gt;          bin
+10/14/2016  03:21 PM    &lt;DIR&gt;          obj
+09/20/2016  12:08 AM               214 Program.cs
+09/20/2016  12:08 AM               367 project.json
+10/14/2016  03:14 PM           290,574 project.lock.json
+               3 File(s)        291,155 bytes
+               4 Dir(s)  101,726,756,864 bytes free
+</code></pre>
+
+<h3>
+<a id="step-8-run-the-project---yey-its-the-time-to-run-the-application" class="anchor" href="#step-8-run-the-project---yey-its-the-time-to-run-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 8 Run the project - Yey its the time to run the application</h3>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dotnet run
+Project firstconsoleapp (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
+Hello World!
+</code></pre>
+
+<p>So we see the output "Hello World". Just a reminder that the reason we don't need to provide any project name to run because its considering only one project in the parent folder</p>
+
+<h3>
+<a id="step-9-publish-the-project" class="anchor" href="#step-9-publish-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 9 Publish the project</h3>
+
+<p>The final step of any application building process is publish. So issue the "dotnet publish" command, It will take all the required settings from project.json and publish the project for specific runtime (Default is windows).</p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dotnet publish
+Publishing firstconsoleapp for .NETCoreApp,Version=v1.0
+Project firstconsoleapp (.NETCoreApp,Version=v1.0) was previously compiled. Skipping compilation.
+publish: Published to C:\dotnetcore\firstconsoleapp\bin\Debug\netcoreapp1.0\publish
+Published 1/1 projects successfully
+</code></pre>
+
+<p>So what is special in dotNet
+With dotNetCore we can publish the same application to many different environments like Windows, Linux, OSX. All we need to do it change </p>
+
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Satindersatty/dotNetCore">Dotnetcore</a> is maintained by <a href="https://github.com/Satindersatty">Satindersatty</a>.</span>
 
