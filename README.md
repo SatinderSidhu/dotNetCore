@@ -2,7 +2,7 @@
 
 A simple introduction to Dot Net Core & ASP.Net core. We will be creating the console application without Visual Studio or any other editor. It will be purely from DOS prompt (Old school way - Believe me its so much fun)
 
-# your first dotNetCore application
+# my first dotNetCore application
 
 ### Step 1 - [Download](https://go.microsoft.com/fwlink/?LinkID=827524) the DotNet Core SDK.
 
