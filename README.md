@@ -2,17 +2,20 @@
 
 A simple introduction to Dot Net Core & ASP.Net core. We will be creating the console application without Visual Studio or any other editor. It will be purely from DOS prompt (Old school way - Believe me its so much fun)
 
-# my first dotNetCore application
+# your first dotNetCore application
 
-### Step 1 - [Download](https://go.microsoft.com/fwlink/?LinkID=827524) the DotNet Core SDK.
+### Step 1 - Download the required framework
+[Download](https://go.microsoft.com/fwlink/?LinkID=827524) the DotNet Core SDK.
 
-### Step 2- Open command prompt & Create a folder DotNetCore on your C Drive (You can make a different directory of your choice of location). We will be using this folder to hold all of our examples & demo
+### Step 2- Setup your workspace 
+Open command prompt & Create a folder DotNetCore on your C Drive (You can make a different directory of your choice of location). We will be using this folder to hold all of our examples & demo
 
     C:\>md dotNetCore
     C:\>cd dotNetCore
     C:\>dotNetCore>
 
-###  Step 3- Create another folder inside this & name it as firstConsoleApp
+###  Step 3- Create your project
+Create another folder inside this & name it as firstConsoleApp
 
     C:\dotNetCore>md firstConsoleApp
     C:\dotNetCore>cd firstConsoleApp
@@ -20,7 +23,7 @@ A simple introduction to Dot Net Core & ASP.Net core. We will be creating the co
 
 > The folding structure matters here. the folder we will be using for creating the application counts for name space of the project name & assembly name here.
 
-### Step 4
+### Step 4 Test the setup
 You have installed dotNetCore by now and have a folder to work with also. Now its the time to create first project. Lets try out first by checking if dotNetCore is successfully installed
 
 Try the following command
@@ -54,7 +57,8 @@ If every thing works fine, it should give version and build number. As of today 
       http://go.microsoft.com/fwlink/?LinkID=798306&clcid=0x409
 
 
-### Step 5 - Awesome, now we have everything ready, Lets create our first project. Write the command "dotnet new"
+### Step 5 Create the project
+Awesome, now we have everything ready, Lets create our first project. Write the command "dotnet new"
 
     C:\dotnetcore\firstconsoleapp>dotnet new
     Created new C# project in C:\dotnetcore\firstconsoleapp.
