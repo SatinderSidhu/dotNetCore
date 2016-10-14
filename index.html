@@ -27,18 +27,21 @@
 <h1>
 <a id="your-first-dotnetcore-application" class="anchor" href="#your-first-dotnetcore-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>your first dotNetCore application</h1>
 
-<p>Step 1 - Download(<a href="https://go.microsoft.com/fwlink/?LinkID=827524">https://go.microsoft.com/fwlink/?LinkID=827524</a>) the DotNet Core SDK</p>
+<h3>
+<a id="step-1---download-the-dotnet-core-sdk" class="anchor" href="#step-1---download-the-dotnet-core-sdk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1 - <a href="https://go.microsoft.com/fwlink/?LinkID=827524">Download</a> the DotNet Core SDK.</h3>
 
-<p>Step 2- Open command prompt &amp; Create a folder DotNetCore on your C Drive (You can make a different directory of your choice of location). We will be using this folder to hold all of our examples &amp; demo</p>
+<h3>
+<a id="step-2--open-command-prompt--create-a-folder-dotnetcore-on-your-c-drive-you-can-make-a-different-directory-of-your-choice-of-location-we-will-be-using-this-folder-to-hold-all-of-our-examples--demo" class="anchor" href="#step-2--open-command-prompt--create-a-folder-dotnetcore-on-your-c-drive-you-can-make-a-different-directory-of-your-choice-of-location-we-will-be-using-this-folder-to-hold-all-of-our-examples--demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2- Open command prompt &amp; Create a folder DotNetCore on your C Drive (You can make a different directory of your choice of location). We will be using this folder to hold all of our examples &amp; demo</h3>
 
-<pre><code>C:\mkDir dotNetCore
+<pre><code>C:\&gt;md dotNetCore
 C:\&gt;cd dotNetCore
 C:\&gt;dotNetCore&gt;
 </code></pre>
 
-<p>Step 3- Create another folder inside this &amp; name it as firstConsoleApp</p>
+<h3>
+<a id="step-3--create-another-folder-inside-this--name-it-as-firstconsoleapp" class="anchor" href="#step-3--create-another-folder-inside-this--name-it-as-firstconsoleapp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3- Create another folder inside this &amp; name it as firstConsoleApp</h3>
 
-<pre><code>C:\dotNetCore&gt;mkDir firstConsoleApp
+<pre><code>C:\dotNetCore&gt;md firstConsoleApp
 C:\dotNetCore&gt;cd firstConsoleApp
 C:\dotNetCore&gt;firstConsoleApp&gt;
 </code></pre>
@@ -47,7 +50,108 @@ C:\dotNetCore&gt;firstConsoleApp&gt;
 <p>The folding structure matters here. the folder we will be using for creating the application counts for name space of the project name &amp; assembly name here.</p>
 </blockquote>
 
-<p>Step 4- You have installed dotNetCore by now and have a folder to work with also. Now its the time to create first project.</p>
+<h3>
+<a id="step-4" class="anchor" href="#step-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4</h3>
+
+<p>You have installed dotNetCore by now and have a folder to work with also. Now its the time to create first project. Lets try out first by checking if dotNetCore is successfully installed</p>
+
+<p>Try the following command</p>
+
+<pre><code>C:\dotNetCore&gt;firstConsoleApp&gt;dotnet
+</code></pre>
+
+<p>If every thing works fine, it should give version and build number. As of today I got following with some more detail </p>
+
+<pre><code>Microsoft .NET Core Shared Framework Host
+  Version  : 1.0.1
+  Build    : cee57bf6c981237d80aa1631cfe83cb9ba329f12
+
+Usage: dotnet [common-options] [[options] path-to-application]
+
+Common Options:
+  --help                           Display .NET Core Shared Framework Host help.
+  --version                        Display .NET Core Shared Framework Host version.
+
+Options:
+  --fx-version &lt;version&gt;           Version of the installed Shared Framework to
+use to run the application.
+  --additionalprobingpath &lt;path&gt;   Path containing probing policy and assemblies to probe for.
+
+Path to Application:
+  The path to a .NET Core managed application, dll or exe file to execute.
+
+If you are debugging the Shared Framework Host, set 'COREHOST_TRACE' to '1' in y
+our environment.
+
+To get started on developing applications for .NET Core, install .NET SDK from:
+  http://go.microsoft.com/fwlink/?LinkID=798306&amp;clcid=0x409
+</code></pre>
+
+<h3>
+<a id="step-5---awesome-now-we-have-everything-ready-lets-create-our-first-project-write-the-command-dotnet-new" class="anchor" href="#step-5---awesome-now-we-have-everything-ready-lets-create-our-first-project-write-the-command-dotnet-new" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5 - Awesome, now we have everything ready, Lets create our first project. Write the command "dotnet new"</h3>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dotnet new
+Created new C# project in C:\dotnetcore\firstconsoleapp.
+</code></pre>
+
+<p>You will see 2 files created in the folder. </p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;dir
+ Volume in drive C is OS
+ Volume Serial Number is 5698-08AD
+
+ Directory of C:\dotnetcore\firstconsoleapp
+
+10/14/2016  03:02 PM    &lt;DIR&gt;          .
+10/14/2016  03:02 PM    &lt;DIR&gt;          ..
+09/20/2016  12:08 AM               214 Program.cs
+09/20/2016  12:08 AM               367 project.json
+               2 File(s)            581 bytes
+               2 Dir(s)  101,743,194,112 bytes free
+</code></pre>
+
+<p>Let's see the content of these two files. Program.cs actually contains the application entry point. </p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;type program.cs
+@using System;
+
+namespace ConsoleApplication
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+</code></pre>
+
+<p>Project.json replaces the .csproj file and now it contains a list of all dependencies, environments, publish details etc.</p>
+
+<pre><code>C:\dotnetcore\firstconsoleapp&gt;type project.json
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {},
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}
+</code></pre>
+
+<p>That's it. We have created our first console application. Let's compile it and run it now.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Satindersatty/dotNetCore">Dotnetcore</a> is maintained by <a href="https://github.com/Satindersatty">Satindersatty</a>.</span>
